@@ -1,357 +1,49 @@
 {
-  "nodes": [
-    {
-      "id": "title",
-      "type": "text",
-      "text": "# 🚀 Hybrid Team — Outsourcing Model\n\nHuman-AI Collaboration System\nSignals → Decisions → Implementation → Synthesis",
-      "x": -200,
-      "y": -400,
-      "width": 400,
-      "height": 150
-    },
-    {
-      "id": "systemflow",
-      "type": "file",
-      "file": "Outsourcing/System_Flow_and_HITL_Checkpoints.md",
-      "x": -500,
-      "y": -100,
-      "width": 300,
-      "height": 300
-    },
-    {
-      "id": "automationmodel",
-      "type": "file",
-      "file": "Outsourcing/Automation_Model_Skills_and_Sessions.md",
-      "x": 200,
-      "y": -100,
-      "width": 300,
-      "height": 300
-    },
-    {
-      "id": "stage1",
-      "type": "text",
-      "text": "## 📥 Stage 1: Signal Capture\n\nExternally → Inbox\n👤 Filter & decide what's valuable",
-      "x": -800,
-      "y": 350,
-      "width": 250,
-      "height": 120
-    },
-    {
-      "id": "stage2",
-      "type": "text",
-      "text": "## 🔄 Stage 2: Triage & Route\n\n⚑ HITL Checkpoint 1\n🤖 + 👤 Inbox Sort Skill\nRoute to: Daily / Strategy / Action",
-      "x": -450,
-      "y": 350,
-      "width": 250,
-      "height": 120
-    },
-    {
-      "id": "stage3",
-      "type": "text",
-      "text": "## 💭 Stage 3: Strategy & Decisions\n\n⚑ Checkpoints 2 & 3\n👤 Crystallize thinking\n👤 Record decision in vault",
-      "x": -100,
-      "y": 350,
-      "width": 250,
-      "height": 120
-    },
-    {
-      "id": "stage4",
-      "type": "text",
-      "text": "## 🎯 Stage 4: Issue Drafting\n\n⚑ HITL Checkpoint 4\n🤖 Search candidates\n🤖 AI drafts brief\n👤 Human confirms",
-      "x": 250,
-      "y": 350,
-      "width": 250,
-      "height": 120
-    },
-    {
-      "id": "stage5",
-      "type": "text",
-      "text": "## ⚙️ Stage 5: Implementation\n\n🤖 Agent Session\nReads: CLAUDE.md + issue + context\nImplements → Opens PR",
-      "x": 600,
-      "y": 350,
-      "width": 250,
-      "height": 120
-    },
-    {
-      "id": "stage6",
-      "type": "text",
-      "text": "## ✅ Stage 6: Review & Merge\n\n⚑ Checkpoints 5 & 6\n🤖 + 👤 PR Review\n👤 Merge decision",
-      "x": 950,
-      "y": 350,
-      "width": 250,
-      "height": 120
-    },
-    {
-      "id": "stage7",
-      "type": "text",
-      "text": "## 📚 Stage 7: Documentation\n\n⚑ HITL Checkpoint 7\n👤 Update DECISIONS.md\n👤 Update ARCHITECTURE.md\n👤 Update CHANGELOG",
-      "x": 1300,
-      "y": 350,
-      "width": 250,
-      "height": 140
-    },
-    {
-      "id": "stage8",
-      "type": "text",
-      "text": "## 📊 Stage 8: Weekly Synthesis\n\n⚑ HITL Checkpoint 8\n🤖 Synthesize daily notes + PRs\n👤 Review & promote insights",
-      "x": 1650,
-      "y": 350,
-      "width": 250,
-      "height": 120
-    },
-    {
-      "id": "skill-meeting",
-      "type": "text",
-      "text": "## 🤖 Skill 1: Meeting Capture\n\nVoice memo → vault/inbox/\nStructured entries",
-      "x": -800,
-      "y": 650,
-      "width": 200,
-      "height": 100
-    },
-    {
-      "id": "skill-inbox",
-      "type": "text",
-      "text": "## 🤖 Skill 2: Inbox Sort\n\nvault/inbox/ → Triage\nRoute to destinations\n⚑ HITL Checkpoint",
-      "x": -550,
-      "y": 650,
-      "width": 200,
-      "height": 100
-    },
-    {
-      "id": "skill-synthesis",
-      "type": "text",
-      "text": "## 🤖 Skill 3: Weekly Synthesis\n\nDaily notes + PRs\n→ vault/strategy/YYYY-WW.md\nPattern extraction",
-      "x": -300,
-      "y": 650,
-      "width": 200,
-      "height": 100
-    },
-    {
-      "id": "skill-backlog",
-      "type": "text",
-      "text": "## 🤖 Skill 3b: Backlog Health\n\nMonitor issue count\nDraft issues\nPopulate board\n⚑ HITL Checkpoint",
-      "x": -50,
-      "y": 650,
-      "width": 200,
-      "height": 100
-    },
-    {
-      "id": "skill-implementation",
-      "type": "text",
-      "text": "## 🤖 Skill 4: Implementation\n\nAgent Session\nReads context files\nImplements solution\nOpens PR",
-      "x": 200,
-      "y": 650,
-      "width": 200,
-      "height": 100
-    },
-    {
-      "id": "skill-pr-review",
-      "type": "text",
-      "text": "## 🤖 Skill 5: PR Review\n\nAgent checks:\n- Correctness\n- Security\n- Edge cases\n- Conventions\n⚑ HITL Checkpoint",
-      "x": 450,
-      "y": 650,
-      "width": 200,
-      "height": 120
-    },
-    {
-      "id": "ci-pipeline",
-      "type": "text",
-      "text": "## 🤖 CI Pipeline\n\nAlways-on automation\nTests · Linting\nDoc-freshness gate\nBlocks merge if failed",
-      "x": 700,
-      "y": 650,
-      "width": 200,
-      "height": 120
-    },
-    {
-      "id": "board-action",
-      "type": "text",
-      "text": "## 🤖 Universal Board\n\nGitHub Action\nAny issue opened\nEnsure on board\nEnsure properly labeled",
-      "x": 950,
-      "y": 650,
-      "width": 200,
-      "height": 120
-    },
-    {
-      "id": "hitl-summary",
-      "type": "text",
-      "text": "## ⚑ HITL Checkpoints (8 Total)\n\n1️⃣ Inbox triage\n2️⃣ Strategy crystallization\n3️⃣ Decision recording\n4️⃣ Issue confirmation\n5️⃣ PR approval\n6️⃣ Merge decision\n7️⃣ Doc updates\n8️⃣ Synthesis review",
-      "x": -800,
-      "y": 900,
-      "width": 280,
-      "height": 180
-    },
-    {
-      "id": "data-flow",
-      "type": "text",
-      "text": "## 📦 Data Repositories\n\nvault/inbox/ → Signal capture\nvault/daily/ → Context & reference\nvault/strategy/ → Thinking & decisions\nvault/decisions/ → Decision records\nproject/DECISIONS.md → Agent constraints\nGitHub Issues → Implementation backlog\nPull Requests → Implementation tracking",
-      "x": -450,
-      "y": 900,
-      "width": 350,
-      "height": 200
-    },
-    {
-      "id": "principles",
-      "type": "text",
-      "text": "## 🎯 Key Principles\n\n✓ Skills are reusable templates\n✓ HITL points are leverage\n✓ Humans review outputs (not write from scratch)\n✓ Feedback loops enable refinement\n✓ Always-on guards protect quality\n✓ Context chains preserve knowledge",
-      "x": 100,
-      "y": 900,
-      "width": 320,
-      "height": 200
-    },
-    {
-      "id": "checklist",
-      "type": "file",
-      "file": "Outsourcing/hybrid_team_checklist.md",
-      "x": -800,
-      "y": 1250,
-      "width": 280,
-      "height": 180
-    },
-    {
-      "id": "setup",
-      "type": "file",
-      "file": "Outsourcing/system_design_and_workflow.md",
-      "x": -450,
-      "y": 1250,
-      "width": 280,
-      "height": 180
-    },
-    {
-      "id": "hybrid-setup",
-      "type": "file",
-      "file": "hybrid_team_setup.md",
-      "x": -100,
-      "y": 1250,
-      "width": 280,
-      "height": 180
-    }
-  ],
-  "edges": [
-    {
-      "id": "title-to-flow",
-      "fromNode": "title",
-      "fromSide": "bottom",
-      "toNode": "systemflow",
-      "toSide": "top"
-    },
-    {
-      "id": "title-to-auto",
-      "fromNode": "title",
-      "fromSide": "bottom",
-      "toNode": "automationmodel",
-      "toSide": "top"
-    },
-    {
-      "id": "stage1-2",
-      "fromNode": "stage1",
-      "fromSide": "right",
-      "toNode": "stage2",
-      "toSide": "left"
-    },
-    {
-      "id": "stage2-3",
-      "fromNode": "stage2",
-      "fromSide": "right",
-      "toNode": "stage3",
-      "toSide": "left"
-    },
-    {
-      "id": "stage3-4",
-      "fromNode": "stage3",
-      "fromSide": "right",
-      "toNode": "stage4",
-      "toSide": "left"
-    },
-    {
-      "id": "stage4-5",
-      "fromNode": "stage4",
-      "fromSide": "right",
-      "toNode": "stage5",
-      "toSide": "left"
-    },
-    {
-      "id": "stage5-6",
-      "fromNode": "stage5",
-      "fromSide": "right",
-      "toNode": "stage6",
-      "toSide": "left"
-    },
-    {
-      "id": "stage6-7",
-      "fromNode": "stage6",
-      "fromSide": "right",
-      "toNode": "stage7",
-      "toSide": "left"
-    },
-    {
-      "id": "stage7-8",
-      "fromNode": "stage7",
-      "fromSide": "right",
-      "toNode": "stage8",
-      "toSide": "left"
-    },
-    {
-      "id": "systemflow-to-stages",
-      "fromNode": "systemflow",
-      "fromSide": "bottom",
-      "toNode": "stage1",
-      "toSide": "top"
-    },
-    {
-      "id": "automationmodel-to-skills",
-      "fromNode": "automationmodel",
-      "fromSide": "bottom",
-      "toNode": "skill-implementation",
-      "toSide": "top"
-    },
-    {
-      "id": "skill-meeting-inbox",
-      "fromNode": "skill-meeting",
-      "fromSide": "right",
-      "toNode": "skill-inbox",
-      "toSide": "left"
-    },
-    {
-      "id": "skill-inbox-synthesis",
-      "fromNode": "skill-inbox",
-      "fromSide": "right",
-      "toNode": "skill-synthesis",
-      "toSide": "left"
-    },
-    {
-      "id": "skill-synthesis-backlog",
-      "fromNode": "skill-synthesis",
-      "fromSide": "right",
-      "toNode": "skill-backlog",
-      "toSide": "left"
-    },
-    {
-      "id": "skill-backlog-impl",
-      "fromNode": "skill-backlog",
-      "fromSide": "right",
-      "toNode": "skill-implementation",
-      "toSide": "left"
-    },
-    {
-      "id": "skill-impl-review",
-      "fromNode": "skill-implementation",
-      "fromSide": "right",
-      "toNode": "skill-pr-review",
-      "toSide": "left"
-    },
-    {
-      "id": "skill-review-ci",
-      "fromNode": "skill-pr-review",
-      "fromSide": "right",
-      "toNode": "ci-pipeline",
-      "toSide": "left"
-    },
-    {
-      "id": "skill-ci-board",
-      "fromNode": "ci-pipeline",
-      "fromSide": "right",
-      "toNode": "board-action",
-      "toSide": "left"
-    }
-  ]
+	"nodes":[
+		{"id":"title","type":"text","text":"# 🚀 Hybrid Team — Outsourcing Model\n\nHuman-AI Collaboration System\nSignals → Decisions → Implementation → Synthesis","x":-200,"y":-400,"width":400,"height":150},
+		{"id":"systemflow","type":"file","file":"Outsourcing/System_Flow_and_HITL_Checkpoints.md","x":-500,"y":-100,"width":300,"height":300},
+		{"id":"automationmodel","type":"file","file":"Outsourcing/Automation_Model_Skills_and_Sessions.md","x":200,"y":-100,"width":300,"height":300},
+		{"id":"stage1","type":"text","text":"## 📥 Stage 1: Signal Capture\n\nExternally → Inbox\n👤 Filter & decide what's valuable","x":-800,"y":350,"width":250,"height":120},
+		{"id":"stage2","type":"text","text":"## 🔄 Stage 2: Triage & Route\n\n⚑ HITL Checkpoint 1\n🤖 + 👤 Inbox Sort Skill\nRoute to: Daily / Strategy / Action","x":-450,"y":350,"width":250,"height":120},
+		{"id":"stage3","type":"text","text":"## 💭 Stage 3: Strategy & Decisions\n\n⚑ Checkpoints 2 & 3\n👤 Crystallize thinking\n👤 Record decision in vault","x":-100,"y":350,"width":250,"height":120},
+		{"id":"stage4","type":"text","text":"## 🎯 Stage 4: Issue Drafting\n\n⚑ HITL Checkpoint 4\n🤖 Search candidates\n🤖 AI drafts brief\n👤 Human confirms","x":250,"y":350,"width":250,"height":120},
+		{"id":"stage5","type":"text","text":"## ⚙️ Stage 5: Implementation\n\n🤖 Agent Session\nReads: CLAUDE.md + issue + context\nImplements → Opens PR","x":600,"y":350,"width":250,"height":120},
+		{"id":"stage6","type":"text","text":"## ✅ Stage 6: Review & Merge\n\n⚑ Checkpoints 5 & 6\n🤖 + 👤 PR Review\n👤 Merge decision","x":950,"y":350,"width":250,"height":120},
+		{"id":"stage7","type":"text","text":"## 📚 Stage 7: Documentation\n\n⚑ HITL Checkpoint 7\n👤 Update DECISIONS.md\n👤 Update ARCHITECTURE.md\n👤 Update CHANGELOG","x":1300,"y":350,"width":250,"height":140},
+		{"id":"stage8","type":"text","text":"## 📊 Stage 8: Weekly Synthesis\n\n⚑ HITL Checkpoint 8\n🤖 Synthesize daily notes + PRs\n👤 Review & promote insights","x":1650,"y":350,"width":250,"height":120},
+		{"id":"skill-meeting","type":"text","text":"## 🤖 Skill 1: Meeting Capture\n\nVoice memo → vault/inbox/\nStructured entries","x":-800,"y":650,"width":200,"height":100},
+		{"id":"skill-inbox","type":"text","text":"## 🤖 Skill 2: Inbox Sort\n\nvault/inbox/ → Triage\nRoute to destinations\n⚑ HITL Checkpoint","x":-550,"y":650,"width":200,"height":100},
+		{"id":"skill-synthesis","type":"text","text":"## 🤖 Skill 3: Weekly Synthesis\n\nDaily notes + PRs\n→ vault/strategy/YYYY-WW.md\nPattern extraction","x":-300,"y":650,"width":200,"height":100},
+		{"id":"skill-backlog","type":"text","text":"## 🤖 Skill 3b: Backlog Health\n\nMonitor issue count\nDraft issues\nPopulate board\n⚑ HITL Checkpoint","x":-50,"y":650,"width":200,"height":100},
+		{"id":"skill-implementation","type":"text","text":"## 🤖 Skill 4: Implementation\n\nAgent Session\nReads context files\nImplements solution\nOpens PR","x":200,"y":650,"width":200,"height":100},
+		{"id":"skill-pr-review","type":"text","text":"## 🤖 Skill 5: PR Review\n\nAgent checks:\n- Correctness\n- Security\n- Edge cases\n- Conventions\n⚑ HITL Checkpoint","x":450,"y":650,"width":200,"height":120},
+		{"id":"ci-pipeline","type":"text","text":"## 🤖 CI Pipeline\n\nAlways-on automation\nTests · Linting\nDoc-freshness gate\nBlocks merge if failed","x":700,"y":650,"width":200,"height":120},
+		{"id":"board-action","type":"text","text":"## 🤖 Universal Board\n\nGitHub Action\nAny issue opened\nEnsure on board\nEnsure properly labeled","x":950,"y":650,"width":200,"height":120},
+		{"id":"hitl-summary","type":"text","text":"## ⚑ HITL Checkpoints (8 Total)\n\n1️⃣ Inbox triage\n2️⃣ Strategy crystallization\n3️⃣ Decision recording\n4️⃣ Issue confirmation\n5️⃣ PR approval\n6️⃣ Merge decision\n7️⃣ Doc updates\n8️⃣ Synthesis review","x":-800,"y":900,"width":280,"height":180},
+		{"id":"data-flow","type":"text","text":"## 📦 Data Repositories\n\nvault/inbox/ → Signal capture\nvault/daily/ → Context & reference\nvault/strategy/ → Thinking & decisions\nvault/decisions/ → Decision records\nproject/DECISIONS.md → Agent constraints\nGitHub Issues → Implementation backlog\nPull Requests → Implementation tracking","x":-450,"y":900,"width":350,"height":200},
+		{"id":"principles","type":"text","text":"## 🎯 Key Principles\n\n✓ Skills are reusable templates\n✓ HITL points are leverage\n✓ Humans review outputs (not write from scratch)\n✓ Feedback loops enable refinement\n✓ Always-on guards protect quality\n✓ Context chains preserve knowledge","x":100,"y":900,"width":320,"height":200},
+		{"id":"checklist","type":"file","file":"Outsourcing/hybrid_team_checklist.md","x":-800,"y":1250,"width":280,"height":180},
+		{"id":"setup","type":"file","file":"Outsourcing/system_design_and_workflow.md","x":-450,"y":1250,"width":280,"height":180},
+		{"id":"hybrid-setup","type":"file","file":"hybrid_team_setup.md","x":-100,"y":1250,"width":280,"height":180}
+	],
+	"edges":[
+		{"id":"title-to-flow","fromNode":"title","fromSide":"bottom","toNode":"systemflow","toSide":"top"},
+		{"id":"title-to-auto","fromNode":"title","fromSide":"bottom","toNode":"automationmodel","toSide":"top"},
+		{"id":"stage1-2","fromNode":"stage1","fromSide":"right","toNode":"stage2","toSide":"left"},
+		{"id":"stage2-3","fromNode":"stage2","fromSide":"right","toNode":"stage3","toSide":"left"},
+		{"id":"stage3-4","fromNode":"stage3","fromSide":"right","toNode":"stage4","toSide":"left"},
+		{"id":"stage4-5","fromNode":"stage4","fromSide":"right","toNode":"stage5","toSide":"left"},
+		{"id":"stage5-6","fromNode":"stage5","fromSide":"right","toNode":"stage6","toSide":"left"},
+		{"id":"stage6-7","fromNode":"stage6","fromSide":"right","toNode":"stage7","toSide":"left"},
+		{"id":"stage7-8","fromNode":"stage7","fromSide":"right","toNode":"stage8","toSide":"left"},
+		{"id":"systemflow-to-stages","fromNode":"systemflow","fromSide":"bottom","toNode":"stage1","toSide":"top"},
+		{"id":"automationmodel-to-skills","fromNode":"automationmodel","fromSide":"bottom","toNode":"skill-implementation","toSide":"top"},
+		{"id":"skill-meeting-inbox","fromNode":"skill-meeting","fromSide":"right","toNode":"skill-inbox","toSide":"left"},
+		{"id":"skill-inbox-synthesis","fromNode":"skill-inbox","fromSide":"right","toNode":"skill-synthesis","toSide":"left"},
+		{"id":"skill-synthesis-backlog","fromNode":"skill-synthesis","fromSide":"right","toNode":"skill-backlog","toSide":"left"},
+		{"id":"skill-backlog-impl","fromNode":"skill-backlog","fromSide":"right","toNode":"skill-implementation","toSide":"left"},
+		{"id":"skill-impl-review","fromNode":"skill-implementation","fromSide":"right","toNode":"skill-pr-review","toSide":"left"},
+		{"id":"skill-review-ci","fromNode":"skill-pr-review","fromSide":"right","toNode":"ci-pipeline","toSide":"left"},
+		{"id":"skill-ci-board","fromNode":"ci-pipeline","fromSide":"right","toNode":"board-action","toSide":"left"}
+	]
 }
