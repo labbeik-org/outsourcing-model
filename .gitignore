@@ -1,0 +1,41 @@
+# Obsidian — Local user data (keep folder structure + plugin list)
+.obsidian/appearance.json
+.obsidian/app.json
+.obsidian/workspace.json
+.obsidian/hotkeys.json
+.obsidian/graph.json
+.obsidian/cache/
+.obsidian/backups/
+.obsidian/plugins/*/data.json
+
+# Claudian — Local sessions and settings
+.claudian/sessions/
+.claudian/claudian-settings.json
+
+# System files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Node modules (if applicable)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Temporary files
+*.tmp
+*.log
+*.bak
