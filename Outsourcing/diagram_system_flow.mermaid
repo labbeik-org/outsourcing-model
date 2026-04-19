@@ -1,0 +1,78 @@
+---
+title: Hybrid Team — End-to-End Flow & HITL Checkpoints
+---
+flowchart TD
+    classDef human fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f,rx:4
+    classDef agent fill:#dcfce7,stroke:#16a34a,color:#14532d,rx:4
+    classDef hitl fill:#fef9c3,stroke:#ca8a04,color:#713f12,rx:4
+    classDef store fill:#f3f4f6,stroke:#9ca3af,color:#374151,rx:4
+    classDef terminal fill:#fce7f3,stroke:#db2777,color:#831843,rx:12
+
+    EXT([" External World<br> Signals · Feedback · Ideas "]):::terminal
+
+    EXT --> CAP["👤  Signal filter<br>Decide what is worth keeping"]:::human
+    CAP --> INB[("vault/inbox/")]:::store
+
+    INB --> SORT["🤖 + 👤  Weekly inbox sort<br>Agent triages · Human decides<br>━━━━━━━━━━━━━━━━<br>⚑  HITL checkpoint 1"]:::hitl
+
+    SORT -->|Discard| BIN(["🗑 Deleted"]):::terminal
+    SORT -->|Context| DAI[("vault/daily/")]:::store
+    SORT -->|Needs thinking| STR[("vault/strategy/")]:::store
+    SORT -->|Ready to act| MON
+
+    STR --> CRYS["👤  Is the thinking crystallised?<br>Human decides when a strategy<br>note is ready to graduate<br>━━━━━━━━━━━━━━━━<br>⚑  HITL checkpoint 2"]:::hitl
+    CRYS -->|Still evolving| STR
+    CRYS -->|Yes| VDEC
+
+    VDEC["👤  Write vault/decisions/<br>Personal record of<br>the decision and why"]:::human
+    VDEC --> PDEC
+
+    PDEC["👤  Update project/DECISIONS.md<br>Translate vault decision into<br>an agent-readable constraint<br>━━━━━━━━━━━━━━━━<br>⚑  HITL checkpoint 3"]:::hitl
+    PDEC --> MON
+
+    MON["🤖  Backlog health monitor<br>Runs: on schedule · after merge · on demand"]:::agent
+    MON -->|Count ≥ X — board is healthy| GH
+    MON -->|Count < X — board needs refill| SEARCH
+
+    SEARCH["🤖  Search for candidates<br>strategy/ · inbox/ · PRODUCT.md"]:::agent
+    SEARCH --> IDRAFT
+
+    IDRAFT["🤖  AI drafts issue brief<br>Classify type · apply template · generate"]:::agent
+    IDRAFT --> ICONF
+
+    ICONF["👤  Review & confirm draft<br>Edit · approve · or discard<br>━━━━━━━━━━━━━━━━<br>⚑  HITL checkpoint 4<br>(review is the leverage, not writing)"]:::hitl
+    ICONF -->|Discard| STR
+    ICONF -->|Edit & approve| BOARD
+
+    BOARD["🤖  Create issue + add to board<br>Type label · priority · milestone"]:::agent
+    BOARD --> GH[("GitHub Issue<br>+ Projects v2")]:::store
+    BOARD -->|Still below X| SEARCH
+
+    GH --> SESS["🤖  Agent session<br>Reads CLAUDE.md + issue + files<br>Implements · Opens PR"]:::agent
+    SESS --> PR[("Pull Request")]:::store
+
+    PR --> REV["🤖 + 👤  PR review<br>Agent runs checks<br>Human reviews output<br>━━━━━━━━━━━━━━━━<br>⚑  HITL checkpoint 5"]:::hitl
+    REV -->|Changes requested| SESS
+    REV -->|Approved| MRG
+
+    MRG["👤  Merge<br>━━━━━━━━━━━━━━━━<br>⚑  HITL checkpoint 6"]:::hitl
+    MRG --> DOCS
+
+    DOCS["👤  Post-merge doc updates<br>DECISIONS.md · ARCHITECTURE.md · CHANGELOG<br>━━━━━━━━━━━━━━━━<br>⚑  HITL checkpoint 7"]:::hitl
+    DOCS --> SYN
+    DOCS --> MON
+
+    SYN["🤖  Weekly synthesis skill<br>Reads daily/ notes + merged PRs<br>Writes strategy/YYYY-WW.md"]:::agent
+    SYN --> SREV
+
+    SREV["👤  Review synthesis note<br>Promote insights · Discard stale ones<br>Open new issues if needed<br>━━━━━━━━━━━━━━━━<br>⚑  HITL checkpoint 8"]:::hitl
+    SREV --> STR
+    SREV --> MON
+
+    %% Legend
+    subgraph Legend
+        L1["👤 Human step"]:::human
+        L2["🤖 Agent / automated"]:::agent
+        L3["⚑ HITL checkpoint"]:::hitl
+        L4[("Persistent store")]:::store
+    end

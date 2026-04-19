@@ -1,0 +1,24 @@
+{
+  "id": "conv-1776635081121-air3f3la9",
+  "providerId": "claude",
+  "title": "Start new session",
+  "titleGenerationStatus": "success",
+  "createdAt": 1776635081137,
+  "updatedAt": 1776635213391,
+  "lastResponseAt": 1776635213391,
+  "sessionId": "ab44da5a-a689-4805-9d83-5d64a8c01a26",
+  "providerState": {
+    "providerSessionId": "ab44da5a-a689-4805-9d83-5d64a8c01a26"
+  },
+  "currentNote": "Outsourcing/system_design_and_workflow.md",
+  "usage": {
+    "model": "haiku",
+    "inputTokens": 8,
+    "cacheCreationInputTokens": 6382,
+    "cacheReadInputTokens": 33120,
+    "contextWindow": 200000,
+    "contextTokens": 39510,
+    "percentage": 20,
+    "contextWindowIsAuthoritative": true
+  }
+}

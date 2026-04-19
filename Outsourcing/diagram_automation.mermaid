@@ -1,0 +1,167 @@
+---
+title: Hybrid Team — Automation Model (Skills & Agent Sessions)
+---
+flowchart LR
+    classDef input fill:#eff6ff,stroke:#3b82f6,color:#1e3a5f
+    classDef skill fill:#dcfce7,stroke:#16a34a,color:#14532d,font-weight:bold
+    classDef output fill:#f0fdf4,stroke:#86efac,color:#14532d
+    classDef hitl fill:#fef9c3,stroke:#ca8a04,color:#713f12
+    classDef store fill:#f3f4f6,stroke:#9ca3af,color:#374151
+    classDef gate fill:#fce7f3,stroke:#db2777,color:#831843
+
+    %% ─────────────────────────────────────────
+    %% SKILL 1 — Meeting capture
+    %% ─────────────────────────────────────────
+    subgraph SK1 ["🤖  Skill: Meeting Capture"]
+        direction LR
+        MC_IN1["Voice memo<br>or meeting notes"]:::input
+        MC_SKILL(["meeting_capture.md"]):::skill
+        MC_OUT["vault/inbox/<br>entry per<br>decision · action · signal"]:::output
+        MC_IN1 --> MC_SKILL --> MC_OUT
+    end
+
+    %% ─────────────────────────────────────────
+    %% SKILL 2 — Inbox sort
+    %% ─────────────────────────────────────────
+    subgraph SK2 ["🤖 + 👤  Skill: Inbox Sort  ⚑ HITL"]
+        direction LR
+        IS_IN["vault/inbox/<br>entries"]:::input
+        IS_SKILL(["inbox_sort.md"]):::skill
+        IS_H["👤 Human<br>decides fate<br>of each entry"]:::hitl
+        IS_O1["vault/daily/"]:::output
+        IS_O2["vault/strategy/"]:::output
+        IS_O3["GitHub Issue"]:::output
+        IS_O4["🗑 Deleted"]:::output
+        IS_IN --> IS_SKILL --> IS_H
+        IS_H --> IS_O1
+        IS_H --> IS_O2
+        IS_H --> IS_O3
+        IS_H --> IS_O4
+    end
+
+    %% ─────────────────────────────────────────
+    %% SKILL 3 — Weekly synthesis
+    %% ─────────────────────────────────────────
+    subgraph SK3 ["🤖  Skill: Weekly Synthesis"]
+        direction LR
+        WS_IN1["vault/daily/<br>past 7 days"]:::input
+        WS_IN2["Merged PRs<br>across all repos"]:::input
+        WS_SKILL(["weekly_synthesis.md"]):::skill
+        WS_OUT["vault/strategy/YYYY-WW.md"]:::output
+        WS_IN1 --> WS_SKILL
+        WS_IN2 --> WS_SKILL
+        WS_SKILL --> WS_OUT
+    end
+
+    %% ─────────────────────────────────────────
+    %% SKILL 3b — Issue drafting + board population
+    %% ─────────────────────────────────────────
+    subgraph SK3B ["🤖 + 👤  Skill: Backlog Health Monitor + Issue Drafting  ⚑ HITL"]
+        direction TB
+        BH_TRIG["⏱ After merge · schedule · on demand"]:::input
+        BH_CHECK(["backlog_monitor.md<br>Count open issues (excl. future) vs X"]):::skill
+        BH_OK["✅ Count ≥ X<br>Board healthy<br>No action"]:::output
+        BH_LOW["⚠️ Count < X<br>Refill needed"]:::gate
+
+        BH_TRIG --> BH_CHECK
+        BH_CHECK --> BH_OK
+        BH_CHECK --> BH_LOW
+
+        BH_LOW --> ID_SEARCH
+        ID_SEARCH(["Search candidates<br>strategy/ · inbox/ · PRODUCT.md"]):::skill
+
+        ID_IN2["project/DECISIONS.md<br>PRODUCT.md"]:::input
+        ID_H["👤 Human<br>reviews draft<br>Edits · approves<br>or discards"]:::hitl
+        ID_O1["🤖 Create GitHub Issue<br>+ assign labels & milestone"]:::output
+        ID_O2["🤖 Add to Projects v2<br>+ set priority column<br>+ link to epic if any"]:::output
+        ID_O3["🗑 Discard<br>→ back to strategy/"]:::output
+        ID_LOOP["Re-check count<br>Loop until count = X"]:::skill
+
+        ID_CLASSIFY(["1. Classify type"]):::skill
+        ID_TEMPLATE(["2. Apply type template"]):::skill
+        ID_GENERATE(["3. Generate full brief"]):::skill
+
+        ID_IN2 --> ID_CLASSIFY
+        ID_SEARCH --> ID_CLASSIFY
+        ID_CLASSIFY --> ID_TEMPLATE --> ID_GENERATE --> ID_H
+        ID_H --> ID_O1
+        ID_H --> ID_O2
+        ID_H --> ID_O3
+        ID_O1 --> ID_LOOP
+        ID_O2 --> ID_LOOP
+        ID_LOOP -->|Still below X| ID_SEARCH
+        ID_LOOP -->|Count = X| BH_OK
+    end
+
+    %% ─────────────────────────────────────────
+    %% AGENT — Implementation session
+    %% ─────────────────────────────────────────
+    subgraph SK4 ["🤖  Agent: Implementation Session"]
+        direction TB
+        AG_IN1["CLAUDE.md<br>(entry point)"]:::input
+        AG_IN2["GitHub Issue<br>brief"]:::input
+        AG_IN3["DECISIONS.md<br>ARCHITECTURE.md"]:::input
+        AG_READ(["Agent reads<br>context"]):::skill
+        AG_IMPL(["Agent<br>implements"]):::skill
+        AG_PR["Pull Request<br>(agent opens)"]:::output
+        AG_IN1 --> AG_READ
+        AG_IN2 --> AG_READ
+        AG_IN3 --> AG_READ
+        AG_READ --> AG_IMPL --> AG_PR
+    end
+
+    %% ─────────────────────────────────────────
+    %% AGENT — PR review assistance
+    %% ─────────────────────────────────────────
+    subgraph SK5 ["🤖 + 👤  Agent: PR Review Assistance  ⚑ HITL"]
+        direction LR
+        PR_IN["Pull Request<br>diff"]:::input
+        PR_SKILL(["Agent checks:<br>correctness · security<br>edge cases · conventions"]):::skill
+        PR_H["👤 Human<br>final review<br>& decision"]:::hitl
+        PR_OUT1["✅ Approved<br>→ Merge"]:::output
+        PR_OUT2["🔁 Changes<br>requested"]:::output
+        PR_IN --> PR_SKILL --> PR_H
+        PR_H --> PR_OUT1
+        PR_H --> PR_OUT2
+    end
+
+    %% ─────────────────────────────────────────
+    %% CI / GITHUB ACTIONS
+    %% ─────────────────────────────────────────
+    subgraph SK6 ["🤖  GitHub Actions (always-on)"]
+        direction LR
+        CI_IN["Every push<br>or PR"]:::input
+        CI_SKILL(["CI pipeline:<br>tests · lint<br>doc-freshness gate"]):::skill
+        CI_P["✅ Pass"]:::output
+        CI_F["❌ Fail<br>→ blocks merge"]:::gate
+        CI_IN --> CI_SKILL
+        CI_SKILL --> CI_P
+        CI_SKILL --> CI_F
+    end
+
+    %% ─────────────────────────────────────────
+    %% GITHUB ACTION — Universal board membership
+    %% ─────────────────────────────────────────
+    subgraph SK7 ["🤖  GitHub Action: Universal Board Membership (issues.opened)"]
+        direction LR
+        UB_IN["Any issue opened<br>(by anyone — AI or human)"]:::input
+        UB_CHECK(["Check board membership<br>+ type label present"]):::skill
+        UB_OK["✅ Already on board<br>+ labelled — no action"]:::output
+        UB_FIX["🔧 Add to Projects v2<br>Add 'needs-type' label<br>if type label missing"]:::gate
+        UB_IN --> UB_CHECK
+        UB_CHECK --> UB_OK
+        UB_CHECK --> UB_FIX
+    end
+
+    %% ─────────────────────────────────────────
+    %% Flow connectors between skills
+    %% ─────────────────────────────────────────
+    MC_OUT -.->|feeds| SK2
+    IS_O2 -.->|matures into| SK3
+    IS_O3 -.->|triggers| SK3B
+    WS_OUT -.->|reviewed by human,<br>may trigger issue drafting| SK3B
+    SK3B -.->|confirmed issue| SK4
+    SK4 -.->|PR created| SK5
+    SK4 -.->|push triggers| SK6
+    SK3B -.->|issue created| SK7
+    SK4 -.->|issue created| SK7
